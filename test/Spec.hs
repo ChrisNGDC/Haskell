@@ -96,12 +96,12 @@ suiteDeTestsDeParteIV =
   describe "Parte 4: Pinos" $ do
 
     describe "pesoPino" $ do
-      it "el peso de un pino de hasta 3 metros, es 3kg por metro" $ do
-        pesoPino 2 `shouldBe` 6
-      it "el peso de un pino de 3 metros, es 3kg por metro" $ do
-        pesoPino 3 `shouldBe` 9
-      it "el peso de un pino de mas de 3 metros, es 3kg por metro para los primeros 3 metros, y 2kg por cada uno de los metros restantes" $ do
-        pesoPino 4 `shouldBe` 11
+      it "el peso de un pino de hasta 3 metros, es 3kg por centimetro" $ do
+        pesoPino 2 `shouldBe` 600
+      it "el peso de un pino de 3 metros, es 3kg por centimetro" $ do
+        pesoPino 3 `shouldBe` 900
+      it "el peso de un pino de mas de 3 metros, es 3kg por centimetro para los primeros 3 metros, y 2kg por centimetro por cada uno de los metros restantes" $ do
+        pesoPino 4 `shouldBe` 1100
 
     describe "esPesoUtil" $ do
       it "es falso si el peso es menor a 400" $ do
@@ -118,7 +118,7 @@ suiteDeTestsDeParteIV =
     describe "sirvePino" $ do
       it "es verdad si el peso del pino le es util a la fabrica" $ do
         sirvePino 2 `shouldBe` True
-      it "es falso si el peso del pino le es util a la fabrica" $ do
+      it "es falso si el peso del pino no le es util a la fabrica" $ do
         sirvePino 1 `shouldBe` False
         sirvePino 5 `shouldBe` False
 
