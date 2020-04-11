@@ -11,10 +11,10 @@
 
 ## Integrantes
 
-**Equipo:**  Team Rocket
+**Equipo:**  Los Softwareños
 
-- Juan Fernandes (@juanFdS)
-- Federico Romero (@fecheromero)
+- Christian Gabor Delli Carri (@ChrisNGDC)
+- Sasha Belen Estrella (@sashaestrella)
 
 ## Objetivos
 
@@ -91,7 +91,7 @@ GradosCelsius = (GradosFarenheit - 32) / 1.8
 
 Entonces, vamos a implementar unas funciones que hagan esto por nosotros:
 
-- **celsiusAFarenheit**: toma una temperatura (que la vamos a representar como un número) en celsius, y la convierte a farenheit. 
+- **celsiusAFarenheit**: toma una temperatura (que la vamos a representar como un número) en celsius, y la convierte a farenheit.
 - **farenheitACelsius**: está función hace el camino inverso a la anterior, le damos una temperatura en farenheit y la pasa a celsius.
 
 Ahora, queremos una función a la cuál podamos preguntarle si hace frío o no. Nuestro criterio va a ser que hace frío sólo si la temperatura es menor o igual a **8 grados Celsius**. Entonces, definamos:
@@ -115,15 +115,15 @@ Como estas funciones ya existen en Haskell, pero queremos definirlas igual para 
 En una plantación de pinos, de cada árbol se conoce la altura expresada en metros. El peso de un pino se puede calcular a partir de la altura así:
 
   - 3 kg por cada centímetro hasta 3 metros,
-  - 2 kg por cada centímetro arriba de los 3 metros. 
+  - 2 kg por cada centímetro arriba de los 3 metros.
 
 ![](https://raw.githubusercontent.com/MumukiProject/mumuki-guia-funcional-practica-valores-y-funciones/master/images/pino.png)
 
 Por ejemplo:
 
   - 2 metros pesan 600 kg, porque 200 * 3 = 600
-  - 5 metros pesan 1300 kg, porque los primeros 3 metros pesan 900 kg y los siguientes 2 pesan los 400 restantes. 
-    
+  - 5 metros pesan 1300 kg, porque los primeros 3 metros pesan 900 kg y los siguientes 2 pesan los 400 restantes.
+
 ![](https://raw.githubusercontent.com/MumukiProject/mumuki-guia-funcional-practica-valores-y-funciones/master/images/pinos.png)
 
 Los pinos se usan para llevarlos a una fábrica de muebles, a la que le sirven árboles de entre 400 y 1000 kilos, un pino fuera de este rango no le sirve a la fábrica. Entonces, un pino de 2 metros serviría porque pesa 600kg, pero un pino de 5 metros no serviría porque pesa 1300kg.
@@ -132,7 +132,7 @@ Vamos a definir las siguientes funciones, y en este punto, todas van a ser tipad
 
 - **pesoPino**: recibe la altura de un pino en metros y devuelve su peso.
 - **esPesoUtil**: recibe un peso en kg y responde si un pino de ese peso le sirve a la fábrica
-- **sirvePino**: recibe la altura de un pino y responde si un pino de ese peso le sirve a la fábrica. 
+- **sirvePino**: recibe la altura de un pino y responde si un pino de ese peso le sirve a la fábrica.
 
 
 ## Que hacer cuando terminan el TP
