@@ -4,43 +4,47 @@ import PdePreludat
 -- 1. Numeros
 
 siguiente :: Number -> Number
-siguiente = implementame
+siguiente = (+ 1)
 
 esPositivo :: Number -> Bool
-esPositivo = implementame
+esPositivo = (> 0)
 
--- escriban el tipo de esta función
-inversa = implementame
+inversa :: Number -> Number
+inversa = (1 /)
 
 -- 2. Temperaturas
 
 celsiusAFarenheit :: Number -> Number
-celsiusAFarenheit celsius = implementame
+celsiusAFarenheit = (+ 32).(* 1.8)
 
 farenheitACelsius :: Number -> Number
-farenheitACelsius farenheit = implementame
+farenheitACelsius = (/ 1.8).(+ (-32))
 
--- escriban el tipo de esta función
-haceFrioCelsius grados = implementame
+haceFrioCelsius :: Number -> Bool
+haceFrioCelsius = (<= 8)
 
--- escriban el tipo de esta función
-haceFrioFarenheit grados = implementame
+haceFrioFarenheit :: Number -> Bool
+haceFrioFarenheit = haceFrioCelsius.farenheitACelsius
 
 -- 3. Mas numeros!
 
 max' :: Number -> Number -> Number
-max' = implementame
+max' numero1 numero2
+                    |numero1 > numero2 = numero1
+                    |otherwise = numero2
 
 min' :: Number -> Number -> Number
-min' = implementame
+min' numero1 numero2
+                    |numero1 < numero2 = numero1
+                    |otherwise = numero2
 
 -- 4. Pinos
 
--- escriban el tipo de esta función
-pesoPino = implementame
+pesoPino :: Number -> Number
+pesoPino altura = (min' altura 3)* 300 + (altura - (min' altura 3)) * 200
 
--- escriban el tipo de esta función
-esPesoUtil = implementame
+esPesoUtil :: Number -> Bool
+esPesoUtil peso = peso >= 400 && peso <= 1000
 
--- escriban el tipo de esta función
-sirvePino = implementame
+sirvePino :: Number -> Bool
+sirvePino = esPesoUtil.pesoPino

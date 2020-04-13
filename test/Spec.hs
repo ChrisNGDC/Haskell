@@ -9,7 +9,7 @@ main = hspec $ do
   suiteDeTestsDeParteII
   suiteDeTestsDeParteIII
   suiteDeTestsDeParteIV
-  
+
 suiteDeTestsDeParteI =
   describe "Parte I: Numeros" $ do
 
@@ -91,7 +91,7 @@ suiteDeTestsDeParteIII =
         min' 1 2 `shouldBe` 1
       it "si ambos son iguales, devuelve ese valor" $ do
         min' 1 1 `shouldBe` 1
-        
+
 suiteDeTestsDeParteIV =
   describe "Parte 4: Pinos" $ do
 
@@ -125,7 +125,7 @@ suiteDeTestsDeParteIV =
 shouldBeEqualUpTo2Decimals :: Number -> Number -> Expectation
 shouldBeEqualUpTo2Decimals aNumber anotherNumber = shouldBeEqualWithErrorLessThan 0.01 aNumber anotherNumber
 
-shouldBeEqualWithErrorLessThan :: Number -> Number -> Number -> Expectation       
+shouldBeEqualWithErrorLessThan :: Number -> Number -> Number -> Expectation
 shouldBeEqualWithErrorLessThan error aNumber anotherNumber
   | aNumber - anotherNumber < error = pure () -- Esto hace que el test de verde!
   | otherwise = expectationFailure (show aNumber ++ " no es igual (comparando con error < " ++ show error ++ ") a " ++ show anotherNumber)
