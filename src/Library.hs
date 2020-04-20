@@ -11,7 +11,7 @@ esMultiploDeTres num = rem num 3 == 0
 -- 2 --
 
 esMultiploDe :: Number -> Number -> Bool
-esMultiploDe num =  (==0).rem num
+esMultiploDe num1 num2 =  0 == rem num1 num2
 
 -- 3 --
 
@@ -109,13 +109,10 @@ sirvePino = esPesoUtil.pesoPino
 
 -- 12 --
 
-aumentar :: Number -> Number
-aumentar num = num + 1
-
 buscarCuadrado :: Number -> Number -> Bool
 buscarCuadrado num contador
                 | num == contador ^ 2 = True
-                | num > contador ^ 2 = buscarCuadrado num  (aumentar contador)
+                | num > contador ^ 2 = buscarCuadrado num  (siguiente contador)
                 | num <  contador ^ 2 = False
 
 esCuadradoPerfecto :: Number -> Bool
@@ -125,32 +122,145 @@ esCuadradoPerfecto num = buscarCuadrado num 1
 
 -- 1 --
 
+siguiente :: Number -> Number
+siguiente = (+1)
 
 -- 2 --
 
+mitad :: Number -> Number
+mitad = (/2)
 
 -- 3 --
 
+inversa :: Number -> Number
+inversa = (1/)
 
 -- 4 --
 
+triple :: Number -> Number
+triple = (*3)
 
 -- 5 --
 
+esNumeroPositivo :: Number -> Bool
+esNumeroPositivo = (>0)
 
 -- 6 --
 
+esMultiploDeV2 :: Number -> Number -> Bool
+esMultiploDeV2 num =  (==0).rem num
 
 -- 7 --
 
+esBisiestoV2 :: Number -> Bool
+esBisiestoV2 num = ((esMultiploDe num 400 ||).(esMultiploDe num 4 &&).not.(esMultiploDe num)) 400
 
 -- 8 --
 
+inversaRaizCuadrada :: Number -> Number
+inversaRaizCuadrada = inversa.sqrt
 
 -- 9 --
 
+incrementMCuadradoN :: Number -> Number -> Number
+incrementMCuadradoN num = (+ num ^ 2)
 
 -- 10 --
 
+esResultadoPar :: Number -> Number -> Bool
+esResultadoPar num = even.(num^)
 
--- 11 --
+-- Ejercicios 3 --
+
+-- 1 --
+
+fst3 :: [a] -> a
+fst3 = head
+
+snd3 :: [a] -> a
+snd3 = head.tail
+
+trd3 :: [a] -> a
+trd3 = last
+
+-- 2 --
+
+aplicar :: ((a -> b),(a -> c)) -> a -> (b,c)
+aplicar (funcion1, funcion2) elem = (funcion1 elem, funcion2 elem)
+
+-- 3 --
+
+cuentaBizarra :: (Number, Number) -> Number
+cuentaBizarra (elem1, elem2)
+                        | elem1 > elem2 = elem1 + elem2
+                        | elem1 + 10 < elem2 = elem2 - elem1
+                        | otherwise = elem1 * elem2
+
+-- 4 a --
+
+esNotaBochazo :: Number -> Bool
+esNotaBochazo = (<5)
+
+-- 4 b --
+
+aprobo :: (Number, Number) -> Bool
+aprobo notas = (not.(esNotaBochazo (fst notas) &&).(esNotaBochazo)) (snd notas)
+
+-- 4 c --
+
+promociono :: (Number, Number) -> Bool
+promociono notas = aprobo notas && (fst notas + snd notas > 14)
+
+-- 4 d --
+
+consultaPrimerParcial ::  (Number, Number) -> Bool
+consultaPrimerParcial notas = fst notas > 5
+
+-- 5 a --
+
+nota1 :: ((Number, Number),(Number, Number)) -> Number
+nota1 notasYRec = fst (fst notasYRec)
+
+nota2 :: ((Number, Number),(Number, Number)) -> Number
+nota2 notasYRec = snd (fst notasYRec)
+
+rec1 :: ((Number, Number),(Number, Number)) -> Number
+rec1 notasYRec = fst (snd notasYRec)
+
+rec2 :: ((Number, Number),(Number, Number)) -> Number
+rec2 notasYRec = snd (snd notasYRec)
+
+notasFinales :: ((Number, Number),(Number, Number)) -> (Number, Number)
+notasFinales notasYRec = (max (nota1 notasYRec) (rec1 notasYRec), max (nota2 notasYRec) (rec2 notasYRec))
+
+-- 5 b --
+
+consultaRecursar :: ((Number, Number),(Number, Number)) -> Bool
+consultaRecursar = not.aprobo.notasFinales
+
+-- 5 c --
+
+consultaPrimerRec :: ((Number, Number),(Number, Number)) -> Bool
+consultaPrimerRec notasYRec = rec1 notasYRec > nota1 notasYRec
+
+-- 5 d --
+
+recuperoDeGusto :: ((Number, Number),(Number, Number)) -> Bool
+recuperoDeGusto notasYRec = ((nota1 notasYRec > 5) && (nota2 notasYRec > 5)) && ((rec1 notasYRec /= -1) || (rec2 notasYRec /= -1))
+
+-- 6 --
+
+esMayorDeEdad :: (Number, Number) -> Bool
+esMayorDeEdad = (>21).snd
+
+-- 7 --
+
+calcular :: (Number, Number) -> (Number, Number)
+calcular dupla
+            | esMultiploDeV2 (fst dupla) 2 && esMultiploDeV2 (snd dupla) 2 = (2 * fst dupla, snd dupla)
+            | not (esMultiploDeV2 (fst dupla) 2) && esMultiploDeV2 (snd dupla) 2 = (fst dupla, snd dupla)
+            | not (esMultiploDeV2 (fst dupla) 2) && not (esMultiploDeV2 (snd dupla) 2) = (fst dupla, 1 + snd dupla)
+            | esMultiploDeV2 (fst dupla) 2 && not (esMultiploDeV2 (snd dupla) 2) = (2 * fst dupla, 1 + snd dupla)
+
+-- Ejercicios 4 --
+
