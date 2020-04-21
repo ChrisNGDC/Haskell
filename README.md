@@ -1,22 +1,22 @@
-# Guia de ejercicios de Haskell 2020
+# Guia de ejercicios de Haskell 2020 #
 
-**Funcional 1: Ejercicios Basicos**
+**_Funcional 1: Ejercicios Basicos_**
 
-- 1 - Definir la función esMultiploDeTres, que devuelve True si un número es múltiplo de 3.
+- 1. Definir la función esMultiploDeTres, que devuelve True si un número es múltiplo de 3.
 
-- 2 - Definir la función esMultiploDe, que devuelve True si el segundo es múltiplo del primero.
+- 2. Definir la función esMultiploDe, que devuelve True si el segundo es múltiplo del primero.
 
-- 3 - Definir la función cubo, devuelve el cubo de un número.
+- 3. Definir la función cubo, devuelve el cubo de un número.
 
-- 4 - Definir la función area, devuelve el área de un rectángulo a partir de su base y su altura.
+- 4. Definir la función area, devuelve el área de un rectángulo a partir de su base y su altura.
 
-- 5 - Definir la función esBisiesto, indica si un año es bisiesto. (Un año es bisiesto si es divisible por 400 o es divisible por 4 pero no es divisible por 100) Nota: Resolverlo reutilizando la función esMultiploDe.
+- 5. Definir la función esBisiesto, indica si un año es bisiesto. (Un año es bisiesto si es divisible por 400 o es divisible por 4 pero no es divisible por 100) Nota: Resolverlo reutilizando la función esMultiploDe.
 
-- 6 - Definir la función celsiusToFahr, pasa una temperatura en grados Celsius a grados Fahrenheit.
+- 6. Definir la función celsiusToFahr, pasa una temperatura en grados Celsius a grados Fahrenheit.
 
-- 7 - Definir la función fahrToCelsius, la inversa de la anterior.
+- 7. Definir la función fahrToCelsius, la inversa de la anterior.
 
-- 8 - Definir la función haceFrioF, indica si una temperatura expresada en grados Fahrenheit es fría. Decimos que hace frío si la temperatura es menor a 8 grados Celsius. 
+- 8. Definir la función haceFrioF, indica si una temperatura expresada en grados Fahrenheit es fría. Decimos que hace frío si la temperatura es menor a 8 grados Celsius. 
 
 - 9 - Definir la función mcm/2 que devuelva el mínimo común múltiplo entre dos números, de acuerdo a esta fórmula.
 
