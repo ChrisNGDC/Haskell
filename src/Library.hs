@@ -145,27 +145,29 @@ triple = (*3)
 esNumeroPositivo :: Number -> Bool
 esNumeroPositivo = (>0)
 
--- 6 --
+-- Ejercicios Composicion --
+
+-- 1 --
 
 esMultiploDeV2 :: Number -> Number -> Bool
 esMultiploDeV2 num =  (==0).rem num
 
--- 7 --
+-- 2 --
 
 esBisiestoV2 :: Number -> Bool
 esBisiestoV2 num = ((esMultiploDe num 400 ||).(esMultiploDe num 4 &&).not.(esMultiploDe num)) 400
 
--- 8 --
+-- 3 --
 
 inversaRaizCuadrada :: Number -> Number
 inversaRaizCuadrada = inversa.sqrt
 
--- 9 --
+-- 4 --
 
 incrementMCuadradoN :: Number -> Number -> Number
 incrementMCuadradoN num = (+ num ^ 2)
 
--- 10 --
+-- 5 --
 
 esResultadoPar :: Number -> Number -> Bool
 esResultadoPar num = even.(num^)
