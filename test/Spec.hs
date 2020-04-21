@@ -7,7 +7,6 @@ main :: IO ()
 main = hspec $ do
   suiteDeTestsDeParteI
   suiteDeTestsDeParteII
-  suiteDeTestsDeParteIII
   suiteDeTestsDeParteIV
 
 suiteDeTestsDeParteI =
@@ -25,14 +24,6 @@ suiteDeTestsDeParteI =
       it "la inversa de cualquier numero es el resultado de dividir 1 por ese numero" $ do
         inversa 4 `shouldBe` 0.25
         inversa 0.25 `shouldBe` 4
-
-    describe "esPositivo" $ do
-      it "es verdad para los numeros mayores a 0" $ do
-        esPositivo 1 `shouldBe` True
-      it "es falso para los numeros menores a 0" $ do
-        esPositivo (-1) `shouldBe` False
-      it "es falso para el 0" $ do
-        esPositivo 0 `shouldBe` False
 
 suiteDeTestsDeParteII =
   describe "Parte 2: Temperaturas" $ do
@@ -72,25 +63,6 @@ suiteDeTestsDeParteII =
         haceFrioFarenheit 46.4 `shouldBe` True
       it "es falso cuando hacen mas de 8 grados celsius (46.4 F)" $ do
         haceFrioFarenheit 47 `shouldBe` False
-
-suiteDeTestsDeParteIII =
-  describe "Parte 3: Mas Numeros!" $ do
-
-    describe "max'" $ do
-      it "si el primero es mayor al segundo devuelve el primero" $ do
-        max' 2 1 `shouldBe` 2
-      it "si el primero es menor al segundo devuelve el segundo" $ do
-        max' 1 2 `shouldBe` 2
-      it "si ambos son iguales, devuelve ese valor" $ do
-        max' 1 1 `shouldBe` 1
-
-    describe "min'" $ do
-      it "si el primero es mayor al segundo devuelve el segundo" $ do
-        min' 2 1 `shouldBe` 1
-      it "si el primero es menor al segundo devuelve el primero" $ do
-        min' 1 2 `shouldBe` 1
-      it "si ambos son iguales, devuelve ese valor" $ do
-        min' 1 1 `shouldBe` 1
 
 suiteDeTestsDeParteIV =
   describe "Parte 4: Pinos" $ do
