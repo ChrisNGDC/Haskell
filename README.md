@@ -2,7 +2,7 @@
 
 **_Funcional 1: Ejercicios Basicos_**
 
-- 1) Definir la función esMultiploDeTres, que devuelve True si un número es múltiplo de 3.
+- 1 ) Definir la función esMultiploDeTres, que devuelve True si un número es múltiplo de 3.
 
 - 2) Definir la función esMultiploDe, que devuelve True si el segundo es múltiplo del primero.
 
