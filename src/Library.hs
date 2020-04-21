@@ -1,7 +1,7 @@
 module Library where
 import PdePreludat
 
--- Ejercicios 1 --
+-- Ejercicios Basicos --
 
 -- 1 --
 
@@ -118,7 +118,7 @@ buscarCuadrado num contador
 esCuadradoPerfecto :: Number -> Bool
 esCuadradoPerfecto num = buscarCuadrado num 1
 
--- Ejercicios 2 --
+-- Ejercicios Aplicacion Parcial --
 
 -- 1 --
 
@@ -170,7 +170,7 @@ incrementMCuadradoN num = (+ num ^ 2)
 esResultadoPar :: Number -> Number -> Bool
 esResultadoPar num = even.(num^)
 
--- Ejercicios 3 --
+-- Ejercicios Tuplas --
 
 -- 1 --
 
@@ -260,7 +260,53 @@ calcular dupla
             | esMultiploDeV2 (fst dupla) 2 && esMultiploDeV2 (snd dupla) 2 = (2 * fst dupla, snd dupla)
             | not (esMultiploDeV2 (fst dupla) 2) && esMultiploDeV2 (snd dupla) 2 = (fst dupla, snd dupla)
             | not (esMultiploDeV2 (fst dupla) 2) && not (esMultiploDeV2 (snd dupla) 2) = (fst dupla, 1 + snd dupla)
-            | esMultiploDeV2 (fst dupla) 2 && not (esMultiploDeV2 (snd dupla) 2) = (2 * fst dupla, 1 + snd dupla)
+            | otherwise = (2 * fst dupla, 1 + snd dupla)
 
--- Ejercicios 4 --
+-- Ejercicios Listas --
 
+-- 1 --
+
+sumaLista :: [Number] -> Number
+sumaLista = sum
+
+-- 2 a --
+
+frecuenciaCardiaca :: [Number]
+frecuenciaCardiaca = [80, 100, 120, 128, 130, 123, 125]
+
+promedioFrecuenciaCardiaca :: Number
+promedioFrecuenciaCardiaca = sumaLista frecuenciaCardiaca / length frecuenciaCardiaca
+
+-- 2 b --
+
+frecuenciaCardiacaMinuto :: Number -> Number
+frecuenciaCardiacaMinuto num = last (take ((num / 10) + 1) frecuenciaCardiaca)
+
+-- 2 c --
+
+frecuenciasHastaMomento :: Number -> [Number]
+frecuenciasHastaMomento num = take ((num / 10) + 1) frecuenciaCardiaca
+
+-- 3 --
+
+esCapicua :: Ord a => [[a]] -> Bool
+esCapicua listaCompuesta = concat listaCompuesta == reverse (concat listaCompuesta)
+
+-- 4 a --
+
+duracionLlamadas :: ((String,[Number]),(String,[Number]))
+duracionLlamadas = (("Horario Reducido",[20,10,25,15]),("Horario Normal",[10,5,8,2,9,10]))
+
+cuandoHabloMasMinutos :: String
+cuandoHabloMasMinutos
+                    | (sumaLista.snd.fst) duracionLlamadas > (sumaLista.snd.snd) duracionLlamadas = (fst.fst) duracionLlamadas
+                    | otherwise = (fst.snd) duracionLlamadas
+
+-- 4 b --
+
+cuandoHizoMasLlamadas :: String
+cuandoHizoMasLlamadas
+                    | (length.snd.fst) duracionLlamadas > (length.snd.snd) duracionLlamadas = (fst.fst) duracionLlamadas
+                    | otherwise = (fst.snd) duracionLlamadas
+
+-- Ejercicios Orden Superior --
