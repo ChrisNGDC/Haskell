@@ -160,7 +160,8 @@ Escribir una función subirHabilidad que reciba un número (que se supone positi
 
     b) Definir una función cambiarHabilidad, que reciba una función f y una lista de habilidades, y devuelva el resultado de aplicar f con las garantías de rango que da flimitada.
 
-**---------------------------------------------------**
+
+
 
 Usar takeWhile/2 para definir las siguientes funciones: primerosPares/1, que recibe una lista de números y devuelve la sublista hasta el primer no par exclusive. P.ej. 
 Main> primerosPares [4,12,3,8,2,9,6] 
