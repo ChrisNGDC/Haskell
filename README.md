@@ -127,7 +127,7 @@ Considerar que vale recuperar para promocionar. En este ejercicio vale usar las 
 
 4) Definir la función parDeFns, que recibe dos funciones y un valor, y devuelve un par ordenado que es el resultado de aplicar las dos funciones al valor.
 
-**_Funcional 6: Listas + Orden Superior_**
+**_Funcional 7: Listas + Orden Superior_**
 
 1) Definir la función esMultiploDeAlguno, que recibe un número y una lista y devuelve True si el número es múltiplo de alguno de los números de la lista.
 
@@ -147,23 +147,20 @@ Considerar que vale recuperar para promocionar. En este ejercicio vale usar las 
 
 9) Definir la función hayAlgunNegativo, que dada una lista de números devuelve True si hay algún nro. negativo.
 
-10) Definir la función aplicarFunciones/, que dadas una lista de funciones y un valor cualquiera, devuelve la lista del resultado de aplicar las funciones al valor.
+10) Definir la función aplicarFunciones, que dadas una lista de funciones y un valor cualquiera, devuelve la lista del resultado de aplicar las funciones al valor.
 
 11) Definir la función sumaF, que dadas una lista de funciones y un número, devuelve la suma del resultado de aplicar las funciones al número.
 
 12) Un programador Haskell está haciendo las cuentas para un juego de fútbol virtual (como el Hattrick o el ManagerZone). En un momento le llega la información sobre la habilidad de cada jugador de un equipo, que es un número entre 0 y 12, y la orden de subir la forma de todos los jugadores en un número entero; p.ej., subirle 2 la forma a cada jugador. Ahora, ningún jugador puede tener más de 12 de habilidad; si un jugador tiene 11 y la orden es subir 2, pasa a 12, no a 13; si estaba en 12 se queda en 12.
+Escribir una función subirHabilidad que reciba un número (que se supone positivo sin validar) y una lista de números, y le suba la habilidad a cada jugador cuidando que ninguno se pase de 12.
+
+13)  Ahora el requerimiento es más genérico: hay que cambiar la habilidad de cada jugador según una función que recibe la vieja habilidad y devuelve la nueva. 
     
-    a) Escribir una función subirHabilidad que reciba un número (que se supone positivo sin validar) y una lista de números, y le suba la habilidad a cada jugador cuidando que ninguno se pase de 12.
+    a) Definir una función flimitada que recibe una función f y un número n, y devuelve f n garantizando que quede entre 0 y 12 (si f n < 0 debe devolver 0, si f n > 12 debe devolver 12).
 
-    b) Ahora el requerimiento es más genérico: hay que cambiar la habilidad de cada jugador según una función que recibe la vieja habilidad y devuelve la nueva. Armar: una función flimitada que recibe una función f y un número n, y devuelve f n garantizando que quede entre 0 y 12 (si f n < 0 debe devolver 0, si f n > 12 debe devolver 12).
+    b) Definir una función cambiarHabilidad, que reciba una función f y una lista de habilidades, y devuelva el resultado de aplicar f con las garantías de rango que da flimitada.
 
-    c) Definir una función cambiarHabilidad, que reciba una función f y una lista de habilidades, y devuelva el resultado de aplicar f con las garantías de rango que da flimitada.
-
-Usar cambiarHabilidad/2 para llevar a 4 a los que tenían menos de 4, dejando como estaban al resto. P.ej. 
-Main> cambiarHabilidad ... [2,4,5,3,8] 
-[4,4,5,4,8] 
-Lo que hay que escribir es completar donde están los puntitos.
-Investigar lo que hace la función takeWhile/2, que está incluida en el prelude. Preguntar primero el tipo, y después hacer pruebas. Ayudarse con el nombre. 
+# **---------------------------------------------------**
 
 Usar takeWhile/2 para definir las siguientes funciones: primerosPares/1, que recibe una lista de números y devuelve la sublista hasta el primer no par exclusive. P.ej. 
 Main> primerosPares [4,12,3,8,2,9,6] 

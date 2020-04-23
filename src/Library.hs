@@ -391,27 +391,43 @@ divisores num = divisoresLista num num []
 -- 8 --
 
 exists :: (a -> Bool) -> [a] -> Bool
-exists funcion lista = True
+exists funcion lista = (length (filter (==True) (map funcion lista))) > 0
 
 -- 9 --
 
-
+hayAlgunNegativo :: [Number] -> Bool
+hayAlgunNegativo = exists (not.esNumeroPositivo)
 
 -- 10 --
 
+aplicarFunciones :: [(a -> b)] -> a -> [b]
+aplicarFunciones listaFunciones num =  map ($ (num)) listaFunciones
 
+-- 11 --
 
--- 11a --
+sumaF :: [(Number -> Number)] -> Number -> Number
+sumaF listaFunciones num = sum (map ($ (num)) listaFunciones)
 
+-- 12 --
 
+subirHabilidad :: Number -> [Number] -> [Number]
+subirHabilidad num habilidades
+                        | null habilidades = habilidades
+                        | head habilidades + num > 12 = [12]++(subirHabilidad num (tail habilidades))
+                        | otherwise = [head habilidades + num]++(subirHabilidad num (tail habilidades))
 
--- 11b --
+-- 13a --
 
+flimitada  :: (Number -> Number) -> Number -> Number
+flimitada funcion num
+                | funcion num > 12 = 12
+                | funcion num < 0 = 0
+                | otherwise = funcion num
 
+-- 13b --
 
--- 11c --
-
-
+cambiarHabilidad :: (Number -> Number) -> [Number] -> [Number]
+cambiarHabilidad funcion habilidades = map (flimitada funcion) habilidades
 
 -- **Extra mio** -- 
 
