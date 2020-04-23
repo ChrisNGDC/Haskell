@@ -161,57 +161,35 @@ Escribir una función subirHabilidad que reciba un número (que se supone positi
     b) Definir una función cambiarHabilidad, que reciba una función f y una lista de habilidades, y devuelva el resultado de aplicar f con las garantías de rango que da flimitada.
 
 
-Usar takeWhile/2 para definir las siguientes funciones: primerosPares/1, que recibe una lista de números y devuelve la sublista hasta el primer no par exclusive. P.ej. 
-Main> primerosPares [4,12,3,8,2,9,6] 
-devuelve [4,16], corta en 3 porque no es par 
+14) Usar takeWhile para definir las siguientes funciones. 
 
-primerosDivisores/2, que recibe una lista de números y un número n, y devuelve la sublista hasta el primer número que no es divisor de n exclusive. P.ej. 
-Main> primerosDivisores 60 [4,12,3,8,2,9,6] 
-devuelve [4,12,3], corta en 8 porque no divide a 60 
+    a) primerosPares, que recibe una lista de números y devuelve la sublista hasta el primer no par exclusive.
 
-primerosNoDivisores/2, que recibe una lista de números y un número n, y devuelve la sublista hasta el primer número que sí es divisor de n exclusive. P.ej. 
-Main> primerosNoDivisores 60 [8,9,4,12,3,8,2,9,6] 
-devuelve [8,9], corta en 4 porque divide a 60
+    b) primerosDivisores, que recibe una lista de números y un número n, y devuelve la sublista hasta el primer número que no es divisor de n exclusive.
+
+    c) primerosNoDivisores, que recibe una lista de números y un número n, y devuelve la sublista hasta el primer número que sí es divisor de n exclusive.
  
-Se representa la información sobre ingresos y egresos de una persona en cada mes de un año mediante dos listas, de 12 elementos cada una. P.ej., si entre enero y junio gané 100, y entre julio y diciembre gané 120, mi lista de ingresos es:
-[100,100,100,100,100,100,120,120,120,120,120,120] 
-Si empecé en 100 y fui aumentando de a 20 por mes, llegando a 220, queda:
-[100,120..220] 
-Y si es al revés, empecé en 220 y fui bajando de a 20 por mes hasta llegar a 100, queda:
-[220,200..100] 
-(jugar un poco con esta notación) 
-Definir la función: huboMesMejorDe/3, que dadas las listas de ingresos y egresos y un número, devuelve True si el resultado de algún mes es mayor que el número. P.ej. 
-Main> huboMesMejorDe [1..12] [12,11..1] 10 
-True 
-Porque en diciembre el resultado fue 12-1=11 > 10. 
+15) Se representa la información sobre ingresos y egresos de una persona en cada mes de un año mediante dos listas, de 12 elementos cada una.
+Definir la función: huboMesMejorDe, que dadas las listas de ingresos y egresos y un número, devuelve True si el resultado de algún mes es mayor que el número.
 
 
- En una población, se estudió que el crecimiento anual de la altura de las personas sigue esta fórmula de acuerdo a la edad:
+16)En una población, se estudió que el crecimiento anual de la altura de las personas sigue esta fórmula de acuerdo a la edad:
 1 año: 22 cm 
-2 años: 20 cm 
-3 años: 18 cm 
-... así bajando de a 2 cm por año hasta 
-9 años: 6 cm 
+... así bajando de a 2 cm por año hasta  
 10 a 15 años: 4 cm 
 16 y 17 años: 2 cm 
 18 y 19 años: 1 cm 
 20 años o más: 0 cm 
 A partir de esta información: 
-Definir la función crecimientoAnual/1,que recibe como parámetro la edad de la persona, y devuelve cuánto tiene que crecer en un año. Hacerlo con guardas. La fórmula para 1 a 10 años es 24 - (edad * 2).
-Definir la función crecimientoEntreEdades/2, que recibe como parámetros dos edades y devuelve cuánto tiene que crecer una persona entre esas dos edades. P.ej. 
-Main> crecimientoEntreEdades 8 12 
-22 
-es la suma de 8 + 6 + 4 + 4, crecimientos de los años 8, 9, 10 y 11 respectivamente. 
-Nota: Definir la función crecimientoEntreEdades en una sola línea, usando map y suma.
-Armar una función alturasEnUnAnio/2, que dada una edad y una lista de alturas de personas, devuelva la altura de esas personas un año después. P.ej. 
-Main> alturasEnUnAnio 7 [120,108,89] 
-[130,118,99] 
-Qué es lo que van a medir las tres personas un año después, dado que el coeficiente de crecimiento anual para 7 años da 10 cm. 
-Nota: definir la función alturasEnUnAnio en una sola línea, usando map y la función (+ expresión). 
-Definir la función alturaEnEdades/3, que recibe la altura y la edad de una persona y una lista de edades, y devuelve la lista de la altura que va a tener esa persona en cada una de las edades. P.ej. 
-Main> alturaEnEdades 120 8 [12,15,18] 
-[142,154,164] 
-que son las alturas que una persona que mide 120 cm a los 8 años va a tener a los 12, 15 y 18 respectivamente. 
+    
+    a) Definir la función crecimientoAnual,que recibe como parámetro la edad de la persona, y devuelve cuánto tiene que crecer en un año. Hacerlo con guardas. La fórmula para 1 a 10 años es 24 - (edad * 2).
+
+    b) Definir la función crecimientoEntreEdades, que recibe como parámetros dos edades y devuelve cuánto tiene que crecer una persona entre esas dos edades.
+
+    c) Definir una función alturasEnUnAnio, que dada una edad y una lista de alturas de personas, devuelva la altura de esas personas un año después.
+
+    d) Definir la función alturaEnEdades, que recibe la altura y la edad de una persona y una lista de edades, y devuelve la lista de la altura que va a tener esa persona en cada una de las edades.
+
 
 
 Se tiene información de las lluvias en un determinado mes por Ej: se conoce la siguiente información: 

@@ -429,6 +429,62 @@ flimitada funcion num
 cambiarHabilidad :: (Number -> Number) -> [Number] -> [Number]
 cambiarHabilidad funcion habilidades = map (flimitada funcion) habilidades
 
+-- 14a --
+
+esPar :: Number -> Bool
+esPar num = rem num 2 == 0
+
+primerosPares :: [Number] -> [Number]
+primerosPares = takeWhile esPar
+
+-- 14b --
+
+esDivisor :: Number -> Number -> Bool
+esDivisor num1 num2 = mcd num1 num2 == min num1 num2
+
+primerosDivisores :: [Number] -> Number -> [Number]
+primerosDivisores lista num = takeWhile (esDivisor num) lista
+
+-- 14c --
+
+primerosNoDivisores :: [Number] -> Number -> [Number]
+primerosNoDivisores lista num = takeWhile (not.esDivisor num) lista
+
+-- 15 --
+
+huboMesMejorDe :: [Number] -> [Number] -> Number -> Bool
+huboMesMejorDe ingresos egresos num = any (> num) (zipWith (-) ingresos egresos)
+
+-- 16a --
+
+crecimientoAnual :: Number -> Number
+crecimientoAnual edad
+                | edad <= 10 = 24 - (edad * 2)
+                | edad <= 15 = 4
+                | edad <= 17 = 2
+                | edad <= 29 = 1
+                | otherwise = 0
+
+-- 16b --
+
+crecimientoEntreEdades :: Number -> Number -> Number
+crecimientoEntreEdades edad1 edad2
+                        | edad1 == edad2 = 0
+                        | otherwise = crecimientoAnual (min edad1 edad2) + crecimientoEntreEdades (max edad1 edad2) (min edad1 edad2 + 1)
+
+-- 16c --
+
+aumentar1 :: Number -> Number
+aumentar1 num = (crecimientoEntreEdades num (num + 1))
+
+alturasEnUnAnio :: Number -> [Number] -> [Number]
+alturasEnUnAnio edad listaAlturas = map  (+ (aumentar1 edad)) listaAlturas
+
+-- 16d --
+
+alturaEnEdades :: Number -> Number -> [Number] -> [Number]
+alturaEnEdades altura edad listaEdades = map (+altura) (map (crecimientoEntreEdades edad) listaEdades)
+
 -- **Extra mio** -- 
 
 buscarPrimo :: Number -> Number -> Bool
