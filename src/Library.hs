@@ -83,10 +83,19 @@ diasLocos num1 num2 num3 = (dispersion num1 num2 num3) > 100
 
 -- 11 --
 
+alturaPinoCambioDePeso :: Number
 alturaPinoCambioDePeso = 3
+
+pesoPinoPorCentimetroHastaCambio :: Number
 pesoPinoPorCentimetroHastaCambio = 3
+
+pesoPinoPorCentimetroDesdeCambio :: Number
 pesoPinoPorCentimetroDesdeCambio = 2
+
+pesoUtilLimiteInferior :: Number
 pesoUtilLimiteInferior = 400
+
+pesoUtilLimiteSuperior :: Number
 pesoUtilLimiteSuperior = 1000
 
 metrosACentimetros :: Number -> Number
@@ -312,3 +321,105 @@ cuandoHizoMasLlamadas
                     | otherwise = (fst.snd) duracionLlamadas
 
 -- Ejercicios Orden Superior --
+
+-- 1 --
+
+existsAny :: (a -> Bool) -> [a] -> Bool
+existsAny funcion lista = funcion (fst3 lista) || funcion (snd3 lista) || funcion (trd3 lista)
+
+-- 2 --
+
+mejor :: ((Number -> Number), (Number -> Number)) -> Number -> Number
+mejor (funcion1, funcion2) num = max (funcion1 num) (funcion2 num)
+
+-- 3 --
+
+aplicarPar :: (b -> a) -> (b, b) -> (a, a)
+aplicarPar funcion dupla = (funcion (fst dupla), funcion (snd dupla))
+
+-- 4 --
+
+parDeFns :: [(a -> b)] -> a -> [b]
+parDeFns [funcion1, funcion2] num = [funcion1 num, funcion2 num]
+
+-- Ejercicios Listas + Orden Superior --
+
+-- 1 --
+
+esMultiploDeAlguno :: Number -> [Number] -> Bool
+esMultiploDeAlguno num = existsAny (esMultiploDe num)
+
+-- 2 --
+
+promedio :: [Number] -> Number
+promedio lista = (sum lista) / (length lista)
+
+promedios :: [[Number]] -> [Number]
+promedios = map promedio
+
+-- 3 --
+
+promediosSinAplazos :: [[Number]] -> [Number]
+promediosSinAplazos = map (promedio.(filter (>4)))
+
+-- 4 --
+
+mejoresNotas :: [[Number]] -> [Number]
+mejoresNotas = map maximum
+
+-- 5 --
+
+aprobó :: [Number] -> Bool
+aprobó = (>6).minimum
+
+-- 6 --
+
+aprobaron :: [[Number]] -> [[Number]]
+aprobaron = ((filter (not.null)).(map (filter (>6))))
+
+-- 7 --
+
+divisoresLista :: Number -> Number -> [Number] -> [Number]
+divisoresLista num contador lista
+                        | contador < 1 = lista
+                        | mcd num contador == contador = divisoresLista num (contador - 1) ([contador]++lista)
+                        | mcd num contador /= contador = divisoresLista num (contador - 1) lista
+
+divisores :: Number -> [Number]
+divisores num = divisoresLista num num []
+
+-- 8 --
+
+exists :: (a -> Bool) -> [a] -> Bool
+exists funcion lista = True
+
+-- 9 --
+
+
+
+-- 10 --
+
+
+
+-- 11a --
+
+
+
+-- 11b --
+
+
+
+-- 11c --
+
+
+
+-- **Extra mio** -- 
+
+buscarPrimo :: Number -> Number -> Bool
+buscarPrimo num contador
+        | mcd num contador /= 1 = False
+        | mcd num contador == 1 && contador == 1 = True
+        | otherwise = buscarPrimo num (contador - 1)
+
+esPrimo :: Number -> Bool
+esPrimo num = buscarPrimo num (div num 2)
