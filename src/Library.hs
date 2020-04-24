@@ -513,4 +513,6 @@ esPrimo :: Number -> Bool
 esPrimo num = buscarPrimo num (div num 2)
 
 primosHasta :: Number -> [Number]
-primosHasta num = (filter esPrimo [num,num-1..2])++[1]
+primosHasta num 
+        | num <= 0 = []
+        | otherwise = reverse ((filter esPrimo [num,num-1..2])++[1])
