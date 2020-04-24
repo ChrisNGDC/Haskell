@@ -485,6 +485,22 @@ alturasEnUnAnio edad listaAlturas = map  (+ (aumentar1 edad)) listaAlturas
 alturaEnEdades :: Number -> Number -> [Number] -> [Number]
 alturaEnEdades altura edad listaEdades = map (+altura) (map (crecimientoEntreEdades edad) listaEdades)
 
+-- 17a --
+
+
+-- 17b --
+
+
+-- 18 --
+
+
+-- 19 --
+
+
+-- 20 --
+
+
+
 -- **Extra mio** -- 
 
 buscarPrimo :: Number -> Number -> Bool
@@ -495,3 +511,6 @@ buscarPrimo num contador
 
 esPrimo :: Number -> Bool
 esPrimo num = buscarPrimo num (div num 2)
+
+primosHasta :: Number -> [Number]
+primosHasta num = (filter esPrimo [num,num-1..2])++[1]

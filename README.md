@@ -180,33 +180,31 @@ Definir la función: huboMesMejorDe, que dadas las listas de ingresos y egresos 
 16 y 17 años: 2 cm 
 18 y 19 años: 1 cm 
 20 años o más: 0 cm 
-A partir de esta información: 
+A partir de esta información:
     
-    a) Definir la función crecimientoAnual,que recibe como parámetro la edad de la persona, y devuelve cuánto tiene que crecer en un año. Hacerlo con guardas. La fórmula para 1 a 10 años es 24 - (edad * 2).
-
-    b) Definir la función crecimientoEntreEdades, que recibe como parámetros dos edades y devuelve cuánto tiene que crecer una persona entre esas dos edades.
-
+    a) Definir la función crecimientoAnual,que recibe como parámetro la edad de la persona, y devuelve cuánto tiene que crecer en un año.Hacerlo con guardas. La fórmula para 1 a 10 años es 24 - (edad * 2).
+    
+    b) Definir la función crecimientoEntreEdades, que recibe como parámetros dos edades y devuelve cuánto tiene que crecer una persona entre esas dos edades. 
+    
     c) Definir una función alturasEnUnAnio, que dada una edad y una lista de alturas de personas, devuelva la altura de esas personas un año después.
-
+    
     d) Definir la función alturaEnEdades, que recibe la altura y la edad de una persona y una lista de edades, y devuelve la lista de la altura que va a tener esa persona en cada una de las edades.
-
-
-
-Se tiene información de las lluvias en un determinado mes por Ej: se conoce la siguiente información: 
+ 
+17)  Se tiene información de las lluvias en un determinado mes por Ej: se conoce la siguiente información: 
 lluviasEnero = [0,2,5,1,34,2,0,21,0,0,0,5,9,18,4,0]
-(muy difícil) Definir la función rachasLluvia/1, que devuelve una lista de las listas de los días seguidos que llovió. P.ej. se espera que la consulta 
+a) Definir la función rachasLluvia/1, que devuelve una lista de las listas de los días seguidos que llovió. P.ej. se espera que la consulta 
 Main> rachasLluvia lluviasEnero 
 [[2,5,1,34,2],[21],[5,9,18,4]]. 
-A partir de esta definir mayorRachaDeLluvias/1, que devuelve la cantidad máxima de días seguidos que llovió. P.ej. se espera que la consulta mayorRachaDeLluvias lluviasEnero devuelva 5. 
+b) Definir mayorRachaDeLluvias/1, que devuelve la cantidad máxima de días seguidos que llovió. P.ej. se espera que la consulta mayorRachaDeLluvias lluviasEnero devuelva 5. 
 Ayuda: ver las funciones dropWhile y takeWhile, probar p.ej. esto:
 takeWhile even [2,4,7,10,14,15]
 dropWhile even [2,4,7,10,14,15] 
 
-Definir una función que sume una lista de números. 
+18) Definir una función que sume una lista de números. 
 Nota: Resolverlo utilizando foldl/foldr. 
 
-Definir una función que resuelva la productoria de una lista de números. 
+19) Definir una función que resuelva la productoria de una lista de números. 
 Nota: Resolverlo utilizando foldl/foldr. 
 
-Definir la función dispersion, que recibe una lista de números y devuelve la dispersión de los valores, o sea máximo - mínimo. 
+20) Definir la función dispersion, que recibe una lista de números y devuelve la dispersión de los valores, o sea máximo - mínimo. 
 Nota: Probar de utilizar foldr.
