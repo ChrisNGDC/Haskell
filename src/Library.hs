@@ -488,20 +488,26 @@ alturaEnEdades altura edad listaEdades = map (+altura) (map (crecimientoEntreEda
 -- 17a --
 
 
+
 -- 17b --
+
 
 
 -- 18 --
 
 
+
 -- 19 --
+
 
 
 -- 20 --
 
 
 
--- **Extra mio** -- 
+-- **Extras mio** -- 
+
+-- Primos --
 
 buscarPrimo :: Number -> Number -> Bool
 buscarPrimo num contador
@@ -516,3 +522,77 @@ primosHasta :: Number -> [Number]
 primosHasta num 
         | num <= 0 = []
         | otherwise = reverse ((filter esPrimo [num,num-1..2])++[1])
+
+-- Fibonacci (recursivo y por formula) --
+
+fibonacci :: Number -> Number
+fibonacci num = round ((1/sqrt(5))*(((1+sqrt(5))/2)^num)-(1/sqrt(5))*(((1-sqrt(5))/2)^num))
+
+fibonacciR :: Number -> Number
+fibonacciR 0 = 0
+fibonacciR 1 = 1
+fibonacciR num = fibonacciR (num - 2) + fibonacciR (num - 1)
+
+-- Base X a Decimal --
+
+baseEnteroADecimal :: [Number] -> Number -> Number -> Number
+baseEnteroADecimal [] _ _ = error "Numero vacio"
+baseEnteroADecimal [unElemento] num base = unElemento * base ^ num
+baseEnteroADecimal lista num base = last lista * base ^ num + baseEnteroADecimal (init lista) (num+1) base
+
+baseDecimalADecimal :: [Number] -> Number -> Number -> Number
+baseDecimalADecimal [] _ _ = error "Numero vacio"
+baseDecimalADecimal [unElemento] num base = unElemento * (1 / (base ^ num))
+baseDecimalADecimal lista num base = head lista * (1 / (base ^ num)) + baseDecimalADecimal (tail lista) (num+1) base
+
+baseADecimal :: [Number] -> [Number] -> Number -> String
+baseADecimal entero decimal base = show ((baseEnteroADecimal entero 0 base) + (baseDecimalADecimal decimal 1 base))
+
+-- Decimal a Base X --
+
+decimalEnteroABase :: Number -> Number-> [Number]
+decimalEnteroABase 0 _ = []
+decimalEnteroABase 1 _ = [1]
+decimalEnteroABase numero base = ((rem numero base) : decimalEnteroABase (div numero base) base)
+
+decimalDecimalABase :: Number -> Number -> Number -> [Number]
+decimalDecimalABase _ 8 _ = [0]
+decimalDecimalABase 0 _ _ = []
+decimalDecimalABase numero 0 base = [666] ++ decimalDecimalABase numero 1 base
+decimalDecimalABase numero contador base
+        | numero * base >= 100000000 = [div (numero * base) 100000000] ++ decimalDecimalABase ((numero * base) - ((div (numero * base) 100000000) * 100000000)) (contador + 1) base
+        | otherwise = [div (numero * base) 100000000] ++ decimalDecimalABase (numero * base) (contador + 1) base
+
+pasarAPalabra :: [Number] -> String
+pasarAPalabra [] = ""
+pasarAPalabra (0:resto) = "0" ++ pasarAPalabra resto
+pasarAPalabra (1:resto) = "1" ++ pasarAPalabra resto
+pasarAPalabra (2:resto) = "2" ++ pasarAPalabra resto
+pasarAPalabra (3:resto) = "3" ++ pasarAPalabra resto
+pasarAPalabra (4:resto) = "4" ++ pasarAPalabra resto
+pasarAPalabra (5:resto) = "5" ++ pasarAPalabra resto
+pasarAPalabra (6:resto) = "6" ++ pasarAPalabra resto
+pasarAPalabra (7:resto) = "7" ++ pasarAPalabra resto
+pasarAPalabra (8:resto) = "8" ++ pasarAPalabra resto
+pasarAPalabra (9:resto) = "9" ++ pasarAPalabra resto
+pasarAPalabra (10:resto) = "A" ++ pasarAPalabra resto
+pasarAPalabra (11:resto) = "B" ++ pasarAPalabra resto
+pasarAPalabra (12:resto) = "C" ++ pasarAPalabra resto
+pasarAPalabra (13:resto) = "D" ++ pasarAPalabra resto
+pasarAPalabra (14:resto) = "E" ++ pasarAPalabra resto
+pasarAPalabra (15:resto) = "F" ++ pasarAPalabra resto
+pasarAPalabra numeros = "," ++ pasarAPalabra (tail numeros)
+
+decimalA8Bits :: Number -> Number -> Number
+decimalA8Bits numero ceros
+        | numero < 10 = numero * 10 ^ (7 - ceros)
+        | numero < 100 = numero * 10 ^ (6 - ceros)
+        | numero < 1000 = numero * 10 ^ (5 - ceros)
+        | numero < 10000 = numero * 10 ^ (4 - ceros)
+        | numero < 100000 = numero * 10 ^ (3 - ceros)
+        | numero < 1000000 = numero * 10 ^ (2 - ceros)
+        | numero < 10000000 = numero * 10 ^ (1 - ceros)
+        | otherwise = numero / 10 ^ ceros
+
+decimalABase :: Number -> Number -> Number -> Number -> String
+decimalABase entero decimal ceros base = pasarAPalabra (reverse (decimalEnteroABase entero base) ++ decimalDecimalABase (decimalA8Bits decimal ceros) 0 base)
