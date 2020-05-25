@@ -545,8 +545,8 @@ baseDecimalADecimal [] _ _ = error "Numero vacio"
 baseDecimalADecimal [unElemento] num base = unElemento * (1 / (base ^ num))
 baseDecimalADecimal lista num base = head lista * (1 / (base ^ num)) + baseDecimalADecimal (tail lista) (num+1) base
 
-baseADecimal :: [Number] -> [Number] -> Number -> String
-baseADecimal entero decimal base = show ((baseEnteroADecimal entero 0 base) + (baseDecimalADecimal decimal 1 base))
+baseADecimal :: [Number] -> [Number] -> Number -> Number
+baseADecimal entero decimal base = ((baseEnteroADecimal entero 0 base) + (baseDecimalADecimal decimal 1 base))
 
 -- Decimal a Base X --
 
@@ -596,3 +596,31 @@ decimalA8Bits numero ceros
 
 decimalABase :: Number -> Number -> Number -> Number -> String
 decimalABase entero decimal ceros base = pasarAPalabra (reverse (decimalEnteroABase entero base) ++ decimalDecimalABase (decimalA8Bits decimal ceros) 0 base)
+
+formatear :: [Number] -> [Number]
+formatear numero = replicate (8 - length numero) 0 ++ numero
+
+complementar :: [Number] -> [Number]
+complementar numero
+        | null numero = []
+        | head numero == 0 = [1] ++ complementar (tail numero)
+        | otherwise = [0] ++ complementar (tail numero)
+
+complementoA2 :: [Number] -> [Number]
+complementoA2 numero = sumaBinaria (complementar numero) (formatear [1]) 0
+
+sumaBinaria :: [Number] -> [Number] -> Number -> [Number]
+sumaBinaria [numero1] [numero2] carry
+        | numero1 + numero2 + carry == 0 = [0]
+        | numero1 + numero2 + carry == 1 = [1]
+        | numero1 + numero2 + carry == 2 = [0]
+        | numero1 + numero2 + carry == 3 = [1]
+sumaBinaria numero1 numero2 carry
+        | last numero1 + last numero2 + carry == 0 = sumaBinaria (init numero1) (init numero2) 0 ++ [0]
+        | last numero1 + last numero2 + carry == 1 = sumaBinaria (init numero1) (init numero2) 0 ++ [1]
+        | last numero1 + last numero2 + carry == 2 = sumaBinaria (init numero1) (init numero2) 1 ++ [0]
+        | last numero1 + last numero2 + carry == 3 = sumaBinaria (init numero1) (init numero2) 1 ++ [1]
+
+operacionBinaria :: [Number] -> String -> [Number] -> String
+operacionBinaria numero1 "+" numero2 = pasarAPalabra $ sumaBinaria (formatear numero1) (formatear numero2) 0
+operacionBinaria numero1 "-" numero2 = pasarAPalabra $ sumaBinaria (formatear numero1) (complementoA2 $ formatear numero2) 0
