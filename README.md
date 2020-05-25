@@ -1,4 +1,5 @@
-# Guia de ejercicios de Haskell 2020 #
+# Guia de ejercicios de Haskell 2020 
+![Haskell CI](https://github.com/ChrisNGDC/Haskell/workflows/Haskell%20CI/badge.svg)
 
 **_Funcional 1: Ejercicios Basicos_**
 
