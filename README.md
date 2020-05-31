@@ -174,32 +174,21 @@ Escribir una función subirHabilidad que reciba un número (que se supone positi
 Definir la función: huboMesMejorDe, que dadas las listas de ingresos y egresos y un número, devuelve True si el resultado de algún mes es mayor que el número.
 
 
-16)En una población, se estudió que el crecimiento anual de la altura de las personas sigue esta fórmula de acuerdo a la edad:
-1 año: 22 cm 
-... así bajando de a 2 cm por año hasta  
-10 a 15 años: 4 cm 
-16 y 17 años: 2 cm 
-18 y 19 años: 1 cm 
-20 años o más: 0 cm 
-A partir de esta información:
+16) En una población, se estudió que el crecimiento anual de la altura de las personas sigue esta fórmula de acuerdo a la edad; 1 año con 22 cm y así bajando de a 2 cm por año, 10 a 15 años a 4 cm, 16 y 17 años a 2 cm, 18 y 19 años a 1 cm, 20 años o más a 0 cm.
     
     a) Definir la función crecimientoAnual,que recibe como parámetro la edad de la persona, y devuelve cuánto tiene que crecer en un año.Hacerlo con guardas. La fórmula para 1 a 10 años es 24 - (edad * 2).
     
-    b) Definir la función crecimientoEntreEdades, que recibe como parámetros dos edades y devuelve cuánto tiene que crecer una persona entre esas dos edades. 
+    b) Definir la función crecimientoEntreEdades, que recibe como parámetros dos edades y devuelve cuánto tiene que crecer una persona entre esas dos edades.
     
     c) Definir una función alturasEnUnAnio, que dada una edad y una lista de alturas de personas, devuelva la altura de esas personas un año después.
     
-    d) Definir la función alturaEnEdades, que recibe la altura y la edad de una persona y una lista de edades, y devuelve la lista de la altura que va a tener esa persona en cada una de las edades.
+     d) Definir la función alturaEnEdades, que recibe la altura y la edad de una persona y una lista de edades, y devuelve la lista de la altura que va a tener esa persona en cada una de las edades.
  
-17)  Se tiene información de las lluvias en un determinado mes por Ej: se conoce la siguiente información: 
-lluviasEnero = [0,2,5,1,34,2,0,21,0,0,0,5,9,18,4,0]
-a) Definir la función rachasLluvia/1, que devuelve una lista de las listas de los días seguidos que llovió. P.ej. se espera que la consulta 
-Main> rachasLluvia lluviasEnero 
-[[2,5,1,34,2],[21],[5,9,18,4]]. 
-b) Definir mayorRachaDeLluvias/1, que devuelve la cantidad máxima de días seguidos que llovió. P.ej. se espera que la consulta mayorRachaDeLluvias lluviasEnero devuelva 5. 
-Ayuda: ver las funciones dropWhile y takeWhile, probar p.ej. esto:
-takeWhile even [2,4,7,10,14,15]
-dropWhile even [2,4,7,10,14,15] 
+17) Se tiene información de las lluvias en un determinado mes.
+    
+    a) Definir la función rachasLluvia/1, que devuelve una lista de las listas de los días seguidos que llovió. P.ej. se espera que la consulta 
+
+    b) Definir mayorRachaDeLluvias/1, que devuelve la cantidad máxima de días seguidos que llovió. P.ej. se espera que la consulta mayorRachaDeLluvias lluviasEnero devuelva 5.
 
 18) Definir una función que sume una lista de números. 
 Nota: Resolverlo utilizando foldl/foldr. 
