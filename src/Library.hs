@@ -556,7 +556,7 @@ decimalEnteroABase 1 _ = [1]
 decimalEnteroABase numero base = ((rem numero base) : decimalEnteroABase (div numero base) base)
 
 decimalDecimalABase :: Number -> Number -> Number -> [Number]
-decimalDecimalABase _ 8 _ = [0]
+decimalDecimalABase _ 22 _ = [0]
 decimalDecimalABase 0 _ _ = []
 decimalDecimalABase numero 0 base = [666] ++ decimalDecimalABase numero 1 base
 decimalDecimalABase numero contador base
@@ -621,6 +621,8 @@ sumaBinaria numero1 numero2 carry
         | last numero1 + last numero2 + carry == 2 = sumaBinaria (init numero1) (init numero2) 1 ++ [0]
         | last numero1 + last numero2 + carry == 3 = sumaBinaria (init numero1) (init numero2) 1 ++ [1]
 
-operacionBinaria :: [Number] -> String -> [Number] -> String
-operacionBinaria numero1 "+" numero2 = pasarAPalabra $ sumaBinaria (formatear numero1) (formatear numero2) 0
-operacionBinaria numero1 "-" numero2 = pasarAPalabra $ sumaBinaria (formatear numero1) (complementoA2 $ formatear numero2) 0
+data Operacion = Suma | Resta deriving (Show,Eq)
+
+operacionBinaria :: [Number] -> Operacion -> [Number] -> String
+operacionBinaria numero1 Suma numero2 = pasarAPalabra $ sumaBinaria (formatear numero1) (formatear numero2) 0
+operacionBinaria numero1 Resta numero2 = pasarAPalabra $ sumaBinaria (formatear numero1) (complementoA2 $ formatear numero2) 0
